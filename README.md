@@ -6,7 +6,8 @@
 ## 📌 Project Overview
 **Title:** Intelligent Grievance Redressal and Auto-Categorization System using Feature Selection-Based Multi-Label Text Classification.  
 **Lead & Frontend Developer:** 3rd-Semester B.Tech IT Team Lead.  
-**Technology Stack:** HTML5, CSS3, JavaScript (ES6+), Bootstrap 5, Chart.js, Bootstrap Icons.
+**Technology Stack:** HTML5, CSS3, JavaScript (ES6+)
+
 
 ---
 
