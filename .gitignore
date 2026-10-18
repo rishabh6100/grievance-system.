@@ -1,0 +1,22 @@
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+.env
+
+# Uploads & Media (User submitted grievance evidence)
+uploads/*
+!uploads/.gitkeep
+
+# IDE & OS Specific
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Temporary & Log files
+*.log
+*.sqlite3

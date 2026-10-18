@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IntelliGrievance | Smart Civic & Campus Redressal Portal</title>
+
+  <!-- Google Fonts: Plus Jakarta Sans & Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       1. TOP INSTITUTIONAL / GOV HEADER BAR
+       ======================================================================== -->
+  <div class="gov-topbar">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-shield-check text-primary"></i>
+        <span>Smart Civic & Campus Grievance Redressal System</span>
+        <span class="d-none d-md-inline text-secondary">|</span>
+        <span class="d-none d-md-inline text-light">B.Tech IT Project</span>
+      </div>
+      <div class="d-flex align-items-center gap-3">
+        <span class="badge bg-success-subtle text-success border border-success-subtle py-1 px-2" id="topStatusIndicator">
+          <i class="bi bi-circle-fill" style="font-size: 6px;"></i> Intake Active (0 Registered)
+        </span>
+        <button class="btn btn-link text-light text-decoration-none p-0 small fw-semibold" data-bs-toggle="modal" data-bs-target="#howItWorksModal">
+          <i class="bi bi-info-circle me-1"></i> How It Works
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       2. BRANDING NAVBAR
+       ======================================================================== -->
+  <header class="portal-header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <div class="d-flex align-items-center gap-3">
+        <div class="brand-icon-box">
+          <i class="bi bi-shield-check"></i>
+        </div>
+        <div>
+          <div class="brand-title">IntelliGrievance</div>
+          <div class="brand-subtitle">Smart Civic & Campus Redressal</div>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center gap-2">
+        <button class="btn btn-outline-secondary btn-sm rounded-pill px-3" data-bs-toggle="modal" data-bs-target="#vivaModal">
+          <i class="bi bi-mortarboard-fill me-1 text-primary"></i> Viva Guide
+        </button>
+        <button class="btn btn-primary btn-sm rounded-pill px-3 shadow-sm" onclick="switchPortalTab('tab-lodge')">
+          <i class="bi bi-pencil-square me-1"></i> File Grievance
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       3. SECTION NAVIGATION TAB BAR (BIS Copilot Style Arrangement)
+       ======================================================================== -->
+  <nav class="nav-tab-container">
+    <div class="container">
+      <ul class="portal-nav-pills">
+        <li>
+          <button class="portal-nav-btn active" id="btn-tab-lodge" onclick="switchPortalTab('tab-lodge')">
+            <i class="bi bi-pencil-square"></i> 1. File Grievance
+          </button>
+        </li>
+        <li>
+          <button class="portal-nav-btn" id="btn-tab-track" onclick="switchPortalTab('tab-track')">
+            <i class="bi bi-search"></i> 2. Track Status
+          </button>
+        </li>
+        <li>
+          <button class="portal-nav-btn" id="btn-tab-feed" onclick="switchPortalTab('tab-feed')">
+            <i class="bi bi-broadcast"></i> 3. Grievance Wall
+          </button>
+        </li>
+        <li>
+          <button class="portal-nav-btn" id="btn-tab-ai" onclick="switchPortalTab('tab-ai')">
+            <i class="bi bi-cpu-fill"></i> 4. AI & NLP Lab
+          </button>
+        </li>
+        <li>
+          <button class="portal-nav-btn" id="btn-tab-analytics" onclick="switchPortalTab('tab-analytics')">
+            <i class="bi bi-bar-chart-line"></i> 5. Analytics
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========================================================================
+       4. HERO BANNER (Version 1 Visual Presence + Version 2 Clean Status)
+       ======================================================================== -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center justify-content-between g-4">
+        <div class="col-lg-7">
+          <div class="hero-badge">
+            <i class="bi bi-patch-check-fill text-primary"></i> Feature Selection-Based Multi-Label NLP System
+          </div>
+          <h1 class="hero-title">
+            Intelligent Civic <br>
+            <span class="gradient-text">Grievance Redressal</span> <br>
+            & Auto-Categorization
+          </h1>
+          <p class="hero-description">
+            A next-generation civic governance portal that automatically tags complaints into 
+            <strong>multiple relevant categories</strong> using AI text classification, routes tickets to responsible authorities, and provides end-to-end transparent tracking.
+          </p>
+
+          <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-primary rounded-pill px-4 shadow-sm" onclick="switchPortalTab('tab-lodge')">
+              <i class="bi bi-pencil-square me-2"></i> File a Grievance
+            </button>
+            <button class="btn btn-outline-secondary rounded-pill px-4 bg-white" onclick="switchPortalTab('tab-track')">
+              <i class="bi bi-search me-2"></i> Track Complaint
+            </button>
+            <button class="btn btn-light rounded-pill px-4 border" onclick="switchPortalTab('tab-ai')">
+              <i class="bi bi-stars text-warning me-2"></i> Try AI Classifier
+            </button>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <!-- Live Interactive Hero Preview Card from Version 1 -->
+          <div class="card border-0 shadow-lg rounded-4 p-4 bg-white position-relative">
+            <div class="d-flex align-items-center justify-content-between pb-3 border-bottom mb-3">
+              <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-success-subtle text-success p-2 rounded-circle"><i class="bi bi-shield-fill-check fs-6"></i></span>
+                <div>
+                  <h6 class="mb-0 fw-bold text-dark">Live AI Multi-Label Engine</h6>
+                  <small class="text-muted" style="font-size: 0.76rem;">Real-time NLP classification preview</small>
+                </div>
+              </div>
+              <span class="badge bg-primary-subtle text-primary fw-bold">Active</span>
+            </div>
+
+            <div class="bg-light p-3 rounded-3 mb-3 border">
+              <div class="d-flex justify-content-between align-items-center mb-1">
+                <small class="text-muted fw-bold text-uppercase" style="font-size: 0.7rem;">Sample Ingestion Text:</small>
+                <span class="badge bg-white text-secondary border small" style="font-size: 0.68rem;">Civic NLP</span>
+              </div>
+              <p class="small text-dark mb-0 fw-medium">
+                "Water leaking from 3rd floor bathroom pipe onto electrical switchboard near CSE lab, causing sparks..."
+              </p>
+            </div>
+
+            <div class="mb-3">
+              <small class="text-muted d-block mb-2 fw-bold text-uppercase" style="font-size: 0.7rem;">Predicted Multi-Labels (&ge; 50% threshold):</small>
+              <div class="d-flex flex-wrap gap-2">
+                <span class="category-pill pill-water"><i class="bi bi-droplet-fill"></i> Water Supply (96%)</span>
+                <span class="category-pill pill-electrical"><i class="bi bi-lightning-charge-fill"></i> Electrical (92%)</span>
+                <span class="category-pill pill-safety"><i class="bi bi-exclamation-triangle-fill"></i> Safety (88%)</span>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center pt-2 border-top text-muted small">
+              <span><i class="bi bi-cpu me-1 text-primary"></i> Chi-Square &chi;2 Features: 4</span>
+              <button class="btn btn-sm btn-link p-0 text-primary text-decoration-none fw-bold" onclick="switchPortalTab('tab-ai')">
+                Test in AI Lab <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TAB 1: FILE GRIEVANCE (Clean, Simple, Compact Form)
+       ======================================================================== -->
+  <section id="tab-lodge" class="portal-section-content active-section">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+
+          <div class="v1-card">
+            <div class="v1-card-header">
+              <div>
+                <span class="badge bg-primary-subtle text-primary px-3 py-1 rounded-pill fw-bold mb-1">
+                  <i class="bi bi-pencil-fill me-1"></i> Citizen Submission Portal
+                </span>
+                <h4 class="fw-bold text-dark mb-0">Lodge a New Grievance</h4>
+              </div>
+              <span class="badge bg-light text-secondary border">Online Intake</span>
+            </div>
+
+            <form id="grievanceForm" novalidate>
+              <!-- 1. Grievance Title (Clean, NO helper text under line) -->
+              <div class="mb-3">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <label for="grievanceTitle" class="form-label mb-0">Grievance Title / Subject <span class="text-danger">*</span></label>
+                  <span class="small text-muted" id="titleCharCount">0/100</span>
+                </div>
+                <input type="text" class="form-control" id="grievanceTitle" maxlength="100" placeholder="Brief subject (e.g. Water pipeline leaking near electrical switchboard in CSE Block)" required>
+              </div>
+
+              <!-- 2. Detailed Description (Clean, NO helper text under line) -->
+              <div class="mb-3">
+                <label for="grievanceDescription" class="form-label">Detailed Description <span class="text-danger">*</span></label>
+                <textarea class="form-control" id="grievanceDescription" rows="4" placeholder="Describe what happened, exact location, symptoms, hazard level, and any recurring patterns..." required></textarea>
+                
+                <!-- Subtle Live AI Detection Preview -->
+                <div id="aiSuggestionPills" class="inline-ai-indicator">
+                  <span class="text-muted small"><i class="bi bi-cpu"></i> Type complaint details above to see real-time AI category matching...</span>
+                </div>
+              </div>
+
+              <!-- 3. Domain & Urgency Dropdowns -->
+              <div class="row g-3 mb-3">
+                <div class="col-md-6">
+                  <label for="grievanceDept" class="form-label">Domain / Department Preference</label>
+                  <select class="form-select" id="grievanceDept">
+                    <option value="Auto-Detect (AI Managed)" selected>🤖 Auto-Detect via AI (Recommended)</option>
+                    <option value="Estate & Electrical Works">⚡ Estate & Electrical Works</option>
+                    <option value="Water Supply & Plumbing">🚰 Water Supply & Sanitation</option>
+                    <option value="Public Health & Sanitation">🧹 Public Health & Waste Management</option>
+                    <option value="Civil Works & Roads">🏗️ Civil Works & Roads</option>
+                    <option value="Hostel & Canteen Services">🏢 Hostel & Canteen Administration</option>
+                    <option value="Academic & IT Labs">💻 Academic & Computing Facilities</option>
+                  </select>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="grievanceUrgency" class="form-label">Urgency & Safety Level</label>
+                  <select class="form-select" id="grievanceUrgency">
+                    <option value="Medium" selected>🟡 Medium (Standard Redressal)</option>
+                    <option value="Low">🟢 Low (Routine Maintenance)</option>
+                    <option value="High">🟠 High (Urgent Attention)</option>
+                    <option value="Critical">🔴 Critical (Immediate Safety Hazard)</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- 4. Location with GPS button -->
+              <div class="mb-3">
+                <label for="grievanceLocation" class="form-label">Incident Location & Landmark <span class="text-danger">*</span></label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="grievanceLocation" placeholder="e.g. Block B, 3rd Floor corridor or South Campus Gate 3" required>
+                  <button type="button" class="btn btn-outline-primary" id="btnLocateMe">
+                    <i class="bi bi-crosshair"></i> Use GPS
+                  </button>
+                </div>
+              </div>
+
+              <!-- 5. Evidence Photo Upload -->
+              <div class="mb-3">
+                <label class="form-label">Evidence Image Attachment (Optional)</label>
+                <div class="v1-upload-zone" id="fileDropzone">
+                  <i class="bi bi-cloud-arrow-up-fill fs-3 text-primary d-block mb-1"></i>
+                  <span class="small fw-semibold text-secondary">Click to browse or drop photo here</span>
+                  <span class="small text-muted d-block" style="font-size: 0.76rem;">Supports JPG, PNG, WEBP (Max 5MB)</span>
+                </div>
+                <input type="file" id="imageFileInput" class="d-none" accept="image/*">
+
+                <div id="imagePreviewContainer" class="d-none text-center mt-2">
+                  <img id="imagePreview" src="" alt="Evidence" class="v1-preview-img">
+                  <button type="button" class="btn btn-sm btn-link text-danger p-0 ms-2" id="btnRemoveImage">Remove</button>
+                </div>
+              </div>
+
+              <!-- 6. Submitter Info -->
+              <div class="row g-2 mb-4 p-3 bg-light rounded-3 border">
+                <div class="col-md-6">
+                  <label for="citizenName" class="form-label small">Your Name / ID</label>
+                  <input type="text" class="form-control form-control-sm" id="citizenName" placeholder="e.g. Student Submitter">
+                </div>
+                <div class="col-md-6">
+                  <label for="citizenContact" class="form-label small">Email or Phone</label>
+                  <input type="text" class="form-control form-control-sm" id="citizenContact" placeholder="e.g. student@college.edu">
+                </div>
+                <div class="col-12 mt-2">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="checkAnonymous">
+                    <label class="form-check-label small text-muted" for="checkAnonymous">
+                      Submit anonymously (hide name on public transparency board)
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary w-100 py-3 fw-bold rounded-pill shadow">
+                <i class="bi bi-send-check-fill me-2"></i> Register Grievance with AI Auto-Routing
+              </button>
+
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TAB 2: TRACK STATUS (Compact, Settled Down in Less Space)
+       ======================================================================== -->
+  <section id="tab-track" class="portal-section-content">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9 col-xl-8">
+
+          <!-- Search Bar -->
+          <div class="v1-card p-4 mb-3">
+            <label for="trackGrievanceId" class="form-label small text-muted text-uppercase fw-bold mb-2">Track Grievance by Token ID:</label>
+            <div class="input-group input-group-lg shadow-sm">
+              <span class="input-group-text bg-white border-end-0 text-muted"><i class="bi bi-search"></i></span>
+              <input type="text" class="form-control border-start-0" id="trackGrievanceId" placeholder="Enter Token ID (e.g. GRV-2026-1001)" value="GRV-2026-1001">
+              <button class="btn btn-primary px-4 fw-bold" id="btnSearchTrack">Track Now</button>
+            </div>
+
+            <!-- Quick Sample Lookup Pills -->
+            <div class="d-flex flex-wrap align-items-center gap-2 mt-3">
+              <span class="small text-muted fw-bold">Sample Demo Tokens:</span>
+              <button class="btn btn-sm btn-outline-primary rounded-pill py-1 px-3" onclick="trackSampleToken('GRV-2026-1001')">GRV-2026-1001 (Water + Electric)</button>
+              <button class="btn btn-sm btn-outline-warning rounded-pill py-1 px-3" onclick="trackSampleToken('GRV-2026-1002')">GRV-2026-1002 (Sanitation)</button>
+              <button class="btn btn-sm btn-outline-success rounded-pill py-1 px-3" onclick="trackSampleToken('GRV-2026-1003')">GRV-2026-1003 (Road Resolved)</button>
+            </div>
+          </div>
+
+          <!-- Compact Tracking Result Card -->
+          <div class="track-card shadow-sm" id="trackResultCard">
+            <!-- Dynamically populated via app.js -->
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TAB 3: GRIEVANCE WALL (Public Transparency Feed)
+       ======================================================================== -->
+  <section id="tab-feed" class="portal-section-content">
+    <div class="container">
+      <div class="v1-card p-4 mb-4">
+        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+          <div>
+            <span class="badge bg-primary-subtle text-primary px-3 py-1 rounded-pill fw-bold mb-1">
+              <i class="bi bi-broadcast me-1"></i> Public Dashboard
+            </span>
+            <h4 class="fw-bold mb-0 text-dark">Campus & Civic Grievance Feed</h4>
+            <small class="text-muted">Real-time log of registered community complaints and redressal updates</small>
+          </div>
+
+          <div class="d-flex flex-wrap gap-2">
+            <div class="btn-group shadow-sm" role="group">
+              <button type="button" class="btn btn-sm btn-primary feed-filter-btn active" data-status="all">All</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary feed-filter-btn" data-status="Pending">Pending</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary feed-filter-btn" data-status="In Progress">In Progress</button>
+              <button type="button" class="btn btn-sm btn-outline-secondary feed-filter-btn" data-status="Resolved">Resolved</button>
+            </div>
+
+            <select class="form-select form-select-sm shadow-sm" id="feedCategoryFilter" style="width: auto;">
+              <option value="all" selected>All Categories</option>
+              <option value="water_supply">Water Supply</option>
+              <option value="electrical">Electrical Hazards</option>
+              <option value="sanitation">Sanitation & Waste</option>
+              <option value="infrastructure">Infrastructure</option>
+              <option value="hostel_mess">Hostel & Mess</option>
+              <option value="academic_lab">Academic Facilities</option>
+              <option value="public_safety">Public Safety</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-3">
+          <input type="text" class="form-control shadow-sm" id="feedSearchInput" placeholder="🔍 Search grievances by title, location, or token ID...">
+        </div>
+      </div>
+
+      <div class="row" id="grievanceFeedContainer">
+        <!-- Rendered via app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TAB 4: AI & NLP LAB (Interactive Viva Defense)
+       ======================================================================== -->
+  <section id="tab-ai" class="portal-section-content">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Left: Preprocessing & Chi-Square Terminal -->
+        <div class="col-lg-6">
+          <div class="ai-lab-card">
+            <h5 class="fw-bold text-dark mb-3"><i class="bi bi-terminal-fill me-2 text-primary"></i>1. NLP Preprocessing & Feature Selection</h5>
+            
+            <label class="small text-muted fw-bold mb-2">Select a Sample Research Scenario:</label>
+            <div id="aiPresetButtons" class="mb-3">
+              <!-- Preset buttons via ai-demo.js -->
+            </div>
+
+            <label for="aiTestInput" class="small text-muted fw-bold mb-1">Or Enter Custom Complaint Text:</label>
+            <textarea id="aiTestInput" class="form-control mb-3" rows="3" placeholder="Type complaint text to test preprocessing and feature selection..."></textarea>
+
+            <button class="btn btn-primary w-100 fw-bold mb-3" id="btnRunClassifier">
+              <i class="bi bi-play-fill me-1"></i> Run Feature Extraction & Multi-Label Classifier
+            </button>
+
+            <h6 class="small text-muted fw-bold text-uppercase"><i class="bi bi-code-slash me-1"></i> NLP Execution Log:</h6>
+            <div class="ai-terminal-dark" id="aiTerminalLogs">
+              <!-- Logs rendered via ai-demo.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Multi-Label Probabilities & Threshold -->
+        <div class="col-lg-6">
+          <div class="ai-lab-card d-flex flex-column justify-content-between">
+            <div>
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="fw-bold text-dark mb-0"><i class="bi bi-bar-chart-fill me-2 text-primary"></i>2. Category Probabilities</h5>
+                <span class="badge bg-danger small">Threshold &ge; 50%</span>
+              </div>
+              <p class="text-muted small mb-3">
+                In <strong>Multi-Label Classification</strong>, each category has an independent binary classifier (Binary Relevance). Categories crossing the red threshold line (50%) are assigned to the grievance simultaneously.
+              </p>
+
+              <div id="aiProbabilityBars">
+                <!-- Injected via ai-demo.js -->
+              </div>
+
+              <div id="aiClassificationOutcome" class="mt-3">
+                <!-- Injected via ai-demo.js -->
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-top text-center">
+              <button class="btn btn-outline-primary btn-sm rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#vivaModal">
+                <i class="bi bi-question-circle me-1"></i> View Viva Concept Guide (Multi-Label vs Multi-Class)
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       TAB 5: ANALYTICS
+       ======================================================================== -->
+  <section id="tab-analytics" class="portal-section-content">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-7">
+          <div class="v1-card p-4">
+            <h5 class="fw-bold text-dark mb-1">Grievances by Category (Multi-Label Count)</h5>
+            <p class="text-muted small mb-3">Frequency of complaints tagged across municipal & campus domains</p>
+            <canvas id="categoryChart" height="200"></canvas>
+          </div>
+        </div>
+
+        <div class="col-lg-5">
+          <div class="v1-card p-4 text-center">
+            <h5 class="fw-bold text-dark mb-1">Resolution Status Breakdown</h5>
+            <p class="text-muted small mb-3">Ratio of resolved vs active grievances</p>
+            <div style="max-height: 240px; display: flex; justify-content: center;">
+              <canvas id="statusChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       MODAL 1: "HOW IT WORKS" (Accessible on demand, keeps front page clean)
+       ======================================================================== -->
+  <div class="modal fade" id="howItWorksModal" tabindex="-1" aria-labelledby="howItWorksLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content border-0 shadow-lg rounded-4">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title fw-bold" id="howItWorksLabel">
+            <i class="bi bi-diagram-3-fill me-2"></i> System Architecture & Redressal Workflow
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="p-3 border rounded-3 bg-light h-100">
+                <span class="badge bg-primary mb-2">Step 1</span>
+                <h6 class="fw-bold text-dark">Citizen / Student Submission</h6>
+                <p class="small text-muted mb-0">Complainant submits title, description, optional photo evidence, and location via the web portal or WhatsApp.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border rounded-3 bg-light h-100">
+                <span class="badge bg-secondary mb-2">Step 2</span>
+                <h6 class="fw-bold text-dark">NLP & Feature Selection</h6>
+                <p class="small text-muted mb-0">Text is tokenized, stopwords removed, and Chi-Square (&chi;2) feature selection extracts high-signal keywords.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border rounded-3 bg-light h-100">
+                <span class="badge bg-info text-dark mb-2">Step 3</span>
+                <h6 class="fw-bold text-dark">Multi-Label Classification</h6>
+                <p class="small text-muted mb-0">Binary Relevance classifiers tag one or more categories (e.g. Water Supply + Electrical Hazard simultaneously).</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="p-3 border rounded-3 bg-light h-100">
+                <span class="badge bg-success mb-2">Step 4</span>
+                <h6 class="fw-bold text-dark">Automated Routing & Tracking</h6>
+                <p class="small text-muted mb-0">Ticket routes automatically to responsible officers with live tracking token updates for the citizen.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer bg-light">
+          <button type="button" class="btn btn-secondary btn-sm rounded-pill px-3" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 2: SUBMISSION RECEIPT (PRINTABLE & WHATSAPP)
+       ======================================================================== -->
+  <div class="modal fade" id="submissionSuccessModal" tabindex="-1" aria-labelledby="receiptModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg rounded-4">
+        <div class="modal-header bg-success text-white">
+          <h5 class="modal-title fw-bold" id="receiptModalLabel">
+            <i class="bi bi-check-circle-fill me-2"></i> Grievance Lodged Successfully!
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body p-4 text-center">
+          <span class="text-muted small text-uppercase fw-bold d-block mb-1">Your Tracking Token ID</span>
+          <div class="fs-2 fw-extrabold text-primary p-2 bg-light border rounded-3 mb-3" id="receiptToken">GRV-2026-XXXX</div>
+
+          <div class="text-start bg-light p-3 rounded-3 border mb-3 small">
+            <div class="mb-1"><strong>Subject:</strong> <span id="receiptTitle">Title</span></div>
+            <div class="mb-1"><strong>Location:</strong> <span id="receiptLocation">Location</span></div>
+            <div class="mb-1"><strong>Date:</strong> <span id="receiptDate">Date</span></div>
+            <div class="mb-1"><strong>Urgency:</strong> <span id="receiptUrgency">Medium</span></div>
+            <div class="mt-2">
+              <strong>Auto-Assigned Categories (Multi-Label NLP):</strong>
+              <div id="receiptCategories" class="mt-1"></div>
+            </div>
+          </div>
+
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-whatsapp-share" onclick="shareCurrentModalToWhatsApp()">
+              <i class="bi bi-whatsapp me-1"></i> Share on WhatsApp
+            </button>
+            <button type="button" class="btn btn-outline-secondary btn-sm" onclick="copyToClipboard(document.getElementById('receiptToken').textContent)">
+              <i class="bi bi-clipboard me-1"></i> Copy Token
+            </button>
+          </div>
+        </div>
+
+        <div class="modal-footer bg-light p-3">
+          <button type="button" class="btn btn-primary btn-sm w-100 rounded-pill py-2" data-bs-dismiss="modal" onclick="trackSampleToken(document.getElementById('receiptToken').textContent)">
+            Track This Grievance Now <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 3: VIVA DEFENSE GUIDE (FACULTY PREP)
+       ======================================================================== -->
+  <div class="modal fade" id="vivaModal" tabindex="-1" aria-labelledby="vivaModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content border-0 shadow-lg rounded-4">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title fw-bold" id="vivaModalLabel">
+            <i class="bi bi-mortarboard-fill me-2"></i> Faculty Defense & Viva Cheat-Sheet
+          </h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+
+        <div class="modal-body p-4 small">
+          <div class="alert alert-info">
+            <strong>Key takeaway for your presentation:</strong> Explain <em>why</em> multi-label classification is required instead of standard single-class classification in civic governance.
+          </div>
+
+          <h6 class="fw-bold text-primary">1. Multi-Class vs Multi-Label Classification</h6>
+          <p class="text-muted">
+            &bull; <strong>Multi-Class:</strong> An instance belongs to <em>exactly one</em> class out of many (e.g. Sentiment is Positive OR Negative).<br>
+            &bull; <strong>Multi-Label:</strong> An instance can belong to <em>one or more classes simultaneously</em>. For example, a complaint stating <em>"Water pipe cracked and dripping over electrical main box"</em> belongs to BOTH <strong>Water Supply</strong> AND <strong>Electrical Hazard</strong>. Traditional single-class systems fail here because they force an arbitrary single label.
+          </p>
+
+          <h6 class="fw-bold text-primary mt-3">2. Why Feature Selection via Chi-Square (&chi;2)?</h6>
+          <p class="text-muted">
+            In text classification, the vocabulary size (features) can easily exceed thousands of terms, causing the <em>Curse of Dimensionality</em> and overfitting. Feature Selection techniques like <strong>Chi-Square (&chi;2)</strong> evaluate the statistical dependency between words and grievance categories, discarding noisy terms (e.g., "today", "yesterday", "please") and retaining high-signal discriminative words (e.g., "pipeline", "spark", "transformer").
+          </p>
+
+          <h6 class="fw-bold text-primary mt-3">3. Evaluation Metrics for Multi-Label Tasks</h6>
+          <p class="text-muted">
+            Standard single-label accuracy is too harsh for multi-label tasks because getting 2 out of 3 labels right shouldn't score 0%. Instead, we use:<br>
+            &bull; <strong>Hamming Loss:</strong> Fraction of incorrect label predictions (lower is better; 0 is perfect).<br>
+            &bull; <strong>Micro-F1:</strong> Calculates metrics globally by counting total true positives, false negatives, and false positives (preferred when class imbalance exists).<br>
+            &bull; <strong>Macro-F1:</strong> Calculates metrics for each category independently and takes the average (gives equal weight to each grievance category).
+          </p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary btn-sm rounded-pill px-3" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       WHATSAPP FLOATING BUTTON & CHAT POPUP WIDGET
+       ======================================================================== -->
+  <button type="button" class="whatsapp-float-btn" id="whatsappFloatingBtn" title="Chat on WhatsApp / File via WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </button>
+
+  <div class="whatsapp-chat-widget" id="whatsappChatWidget">
+    <div class="whatsapp-widget-header">
+      <div class="d-flex align-items-center gap-2">
+        <i class="bi bi-shield-check fs-5"></i>
+        <div>
+          <h6 class="mb-0 fw-bold text-white small">Civic Grievance Helpdesk</h6>
+          <span class="text-white-50" style="font-size: 0.68rem;">Online Assistance</span>
+        </div>
+      </div>
+      <button type="button" class="btn-close btn-close-white btn-sm" id="btnCloseWhatsAppWidget"></button>
+    </div>
+
+    <div class="whatsapp-widget-body">
+      <p class="mb-2">Hello! How can we assist with your grievance today?</p>
+      <button type="button" class="whatsapp-quick-chip" onclick="quickSendWhatsApp('Lodge New Grievance')">
+        ✍️ Lodge a complaint via WhatsApp
+      </button>
+      <button type="button" class="whatsapp-quick-chip" onclick="quickSendWhatsApp('Track Grievance Status')">
+        🔍 Track existing grievance token
+      </button>
+      <button type="button" class="whatsapp-quick-chip" onclick="quickSendWhatsApp('Report Urgent Safety Hazard')">
+        🚨 Report urgent electrical/water hazard
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER
+       ======================================================================== -->
+  <footer class="portal-footer">
+    <div class="container text-center">
+      <div class="brand-title text-white mb-1">IntelliGrievance Portal</div>
+      <p class="text-muted small mb-2">Intelligent Grievance Redressal and Auto-Categorization System using Feature Selection-Based Multi-Label Text Classification.</p>
+      <div class="small text-secondary">B.Tech IT 3rd Semester Project &copy; 2026. Designed for Civic & Campus Redressal.</div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS Bundle CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.bundle.min.js"></script>
+
+  <!-- Chart.js CDN for Analytics -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/ai-demo.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
