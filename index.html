@@ -18,6 +18,639 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="css/style.css">
+  <style>
+/* ==========================================================================
+   INTELLIGENT GRIEVANCE REDRESSAL SYSTEM - MASTER STYLESHEET
+   Combines Version 1's Premium Visual Design with Version 2's Clean Arrangement
+   Tech Stack: HTML5, CSS3, JavaScript, Bootstrap 5
+   ========================================================================== */
+
+:root {
+  /* Brand Palette (From Version 1) */
+  --primary-color: #2563eb;       /* Civic Blue */
+  --primary-hover: #1d4ed8;
+  --primary-light: #eff6ff;
+  --secondary-color: #0f172a;     /* Deep Navy Slate */
+  --accent-color: #0284c7;        /* Tech Teal */
+
+  /* Status Colors */
+  --status-pending: #d97706;
+  --status-pending-bg: #fef3c7;
+  --status-progress: #2563eb;
+  --status-progress-bg: #dbeafe;
+  --status-resolved: #10b981;
+  --status-resolved-bg: #d1fae5;
+  --status-critical: #ef4444;
+  --status-critical-bg: #fee2e2;
+
+  /* Neutrals & Surfaces */
+  --bg-main: #f8fafc;
+  --bg-card: #ffffff;
+  --text-dark: #0f172a;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+
+  /* Shadows & Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 10px 28px rgba(15, 23, 42, 0.1);
+  --shadow-hover: 0 12px 30px rgba(37, 99, 235, 0.14);
+
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-dark);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+/* --------------------------------------------------------------------------
+   1. Institutional Top Bar & Brand Header
+   -------------------------------------------------------------------------- */
+.gov-topbar {
+  background: #0f172a;
+  color: #94a3b8;
+  font-size: 0.82rem;
+  padding: 7px 0;
+  border-bottom: 1px solid #1e293b;
+}
+
+.portal-header {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border-color);
+  padding: 16px 0;
+}
+
+.brand-icon-box {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+  color: #ffffff;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28);
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+}
+
+.brand-subtitle {
+  font-size: 0.74rem;
+  color: var(--primary-color);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* --------------------------------------------------------------------------
+   2. Tab Navigation Bar (BIS Copilot Arrangement Style)
+   -------------------------------------------------------------------------- */
+.nav-tab-container {
+  background: #ffffff;
+  border-bottom: 1.5px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.portal-nav-pills {
+  display: flex;
+  overflow-x: auto;
+  gap: 8px;
+  padding: 10px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.portal-nav-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #475569;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 9px 18px;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all var(--transition-fast);
+}
+
+.portal-nav-btn:hover {
+  background: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.portal-nav-btn.active {
+  background: var(--primary-color);
+  color: #ffffff !important;
+  font-weight: 700;
+  box-shadow: 0 3px 10px rgba(37, 99, 235, 0.25);
+}
+
+/* --------------------------------------------------------------------------
+   3. Hero Section (Version 1 Visuals + Version 2 Clean Arrangement)
+   -------------------------------------------------------------------------- */
+.hero-section {
+  position: relative;
+  background: radial-gradient(circle at top right, #e0f2fe, #f8fafc 60%);
+  padding: 42px 0 32px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.2;
+  color: var(--secondary-color);
+  letter-spacing: -0.8px;
+  margin-bottom: 12px;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #1d4ed8, #0284c7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+  font-size: 1.05rem;
+  color: #475569;
+  line-height: 1.65;
+  max-width: 650px;
+  margin-bottom: 20px;
+}
+
+.corner-status-badge {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  box-shadow: var(--shadow-sm);
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* --------------------------------------------------------------------------
+   4. Section Visibility & Card Layouts
+   -------------------------------------------------------------------------- */
+.portal-section-content {
+  display: none;
+  padding: 36px 0 60px;
+}
+
+.portal-section-content.active-section {
+  display: block;
+}
+
+.v1-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  padding: 32px;
+  transition: all var(--transition-normal);
+}
+
+.v1-card-header {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 18px;
+  margin-bottom: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --------------------------------------------------------------------------
+   5. Grievance Submission Form (Clean, without helper bloat)
+   -------------------------------------------------------------------------- */
+.form-label {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  margin-bottom: 6px;
+}
+
+.form-control, .form-select {
+  border: 1.5px solid #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 11px 16px;
+  font-size: 0.94rem;
+  color: var(--secondary-color);
+  transition: all var(--transition-fast);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+  outline: none;
+}
+
+/* Subtle Inline AI Suggestion Pill */
+.inline-ai-indicator {
+  background: linear-gradient(135deg, #f0fdf4, #eff6ff);
+  border: 1px solid #86efac;
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.82rem;
+}
+
+.category-pill {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pill-water { background: #e0f2fe; color: #0369a1; border: 1px solid #bae6fd; }
+.pill-electrical { background: #fef3c7; color: #b45309; border: 1px solid #fde68a; }
+.pill-sanitation { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+.pill-infrastructure { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
+.pill-hostel { background: #fae8ff; color: #86198f; border: 1px solid #f5d0fe; }
+.pill-academic { background: #ede9fe; color: #5b21b6; border: 1px solid #ddd6fe; }
+.pill-safety { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+
+/* Photo Upload Box */
+.v1-upload-zone {
+  border: 2px dashed #cbd5e1;
+  border-radius: var(--radius-md);
+  padding: 20px;
+  text-align: center;
+  background: #f8fafc;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.v1-upload-zone:hover {
+  border-color: var(--primary-color);
+  background: #eff6ff;
+}
+
+.v1-preview-img {
+  max-height: 110px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid #cbd5e1;
+}
+
+/* --------------------------------------------------------------------------
+   6. Compact Tracking Card (Settled Down in Less Space)
+   -------------------------------------------------------------------------- */
+.track-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 26px 30px;
+  box-shadow: var(--shadow-md);
+}
+
+.track-header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  margin-bottom: 20px;
+}
+
+/* Compact 1-Line Stepper */
+.compact-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin: 20px 0 28px;
+  padding: 0 10px;
+}
+
+.compact-stepper::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 30px;
+  right: 30px;
+  height: 3px;
+  background: #e2e8f0;
+  z-index: 1;
+}
+
+.step-node {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: #ffffff;
+  padding: 0 8px;
+}
+
+.step-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2.5px solid #cbd5e1;
+  color: #64748b;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 6px;
+  transition: all var(--transition-fast);
+}
+
+.step-node.done .step-circle {
+  background: var(--status-resolved);
+  border-color: var(--status-resolved);
+  color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.18);
+}
+
+.step-node.current .step-circle {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.22);
+}
+
+.step-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--secondary-color);
+  white-space: nowrap;
+}
+
+.step-date {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.evidence-thumb-compact {
+  max-height: 100px;
+  max-width: 140px;
+  border-radius: var(--radius-md);
+  border: 1px solid #cbd5e1;
+  object-fit: cover;
+  box-shadow: var(--shadow-sm);
+}
+
+/* --------------------------------------------------------------------------
+   7. AI Lab & Research Visualizer (Viva Showcase)
+   -------------------------------------------------------------------------- */
+.ai-lab-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  box-shadow: var(--shadow-md);
+  height: 100%;
+}
+
+.ai-terminal-dark {
+  background: #0f172a;
+  color: #38bdf8;
+  font-family: 'Fira Code', Consolas, monospace;
+  font-size: 0.84rem;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  max-height: 240px;
+  overflow-y: auto;
+  border: 1px solid #334155;
+}
+
+.ai-keyword-tag {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid #38bdf8;
+  color: #7dd3fc;
+  padding: 2px 7px;
+  border-radius: 4px;
+  margin: 0 2px;
+  font-weight: 600;
+}
+
+.confidence-bar-wrapper {
+  margin-bottom: 12px;
+}
+
+.confidence-bar-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--secondary-color);
+}
+
+.confidence-bar-track {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+  position: relative;
+}
+
+.confidence-bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.confidence-threshold-marker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: #ef4444;
+  z-index: 3;
+}
+
+/* --------------------------------------------------------------------------
+   8. WhatsApp Floating Button & Modal
+   -------------------------------------------------------------------------- */
+.whatsapp-float-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 58px;
+  height: 58px;
+  background: #25d366;
+  color: #ffffff !important;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  cursor: pointer;
+  z-index: 1050;
+  border: none;
+  transition: transform var(--transition-fast);
+}
+
+.whatsapp-float-btn:hover {
+  transform: scale(1.1);
+}
+
+.whatsapp-chat-widget {
+  position: fixed;
+  bottom: 92px;
+  right: 24px;
+  width: 330px;
+  max-width: calc(100vw - 32px);
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.18);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  z-index: 1049;
+  display: none;
+  flex-direction: column;
+}
+
+.whatsapp-chat-widget.active {
+  display: flex;
+}
+
+.whatsapp-widget-header {
+  background: #075e54;
+  color: #ffffff;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.whatsapp-widget-body {
+  padding: 16px;
+  background: #efeae2;
+  font-size: 0.86rem;
+}
+
+.whatsapp-quick-chip {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #075e54;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 6px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.whatsapp-quick-chip:hover {
+  background: #dcf8c6;
+  border-color: #25d366;
+}
+
+.btn-whatsapp-share {
+  background: #25d366;
+  color: #ffffff !important;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.btn-whatsapp-share:hover {
+  background: #1eb956;
+}
+
+/* Footer */
+.portal-footer {
+  background: #0f172a;
+  color: #94a3b8;
+  padding: 40px 0 20px;
+  border-top: 1px solid #1e293b;
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 1.9rem;
+  }
+  .compact-stepper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .compact-stepper::before {
+    display: none;
+  }
+  .step-node {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .step-circle {
+    margin: 0;
+  }
+}
+
+  </style>
 </head>
 <body>
 
@@ -673,10 +1306,1168 @@
   <!-- Chart.js CDN for Analytics -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
 
-  <!-- Application Scripts -->
-  <script src="js/data.js"></script>
-  <script src="js/ai-demo.js"></script>
-  <script src="js/app.js"></script>
+  <!-- Application Scripts (Fallback embedded) -->
+  <script>
+/**
+ * INTELLIGENT GRIEVANCE REDRESSAL SYSTEM - DATA SEED & TAXONOMY
+ * Clean, student-friendly data layer.
+ * Starts with 0 registered grievances by default so it represents a fresh system.
+ */
+
+// Grievance Categories Taxonomy
+const GRIEVANCE_CATEGORIES = {
+  water_supply: {
+    id: "water_supply",
+    name: "Water Supply & Plumbing",
+    badgeClass: "pill-water",
+    color: "#0284c7",
+    keywords: ["water", "leak", "leaking", "pipe", "pipeline", "tap", "drinking", "cooler", "supply", "tank", "overflow", "drain", "drainage", "sewage"]
+  },
+  electrical: {
+    id: "electrical",
+    name: "Electrical & Power Hazards",
+    badgeClass: "pill-electrical",
+    color: "#d97706",
+    keywords: ["electric", "electrical", "wire", "wires", "spark", "sparking", "transformer", "shock", "light", "street light", "switch", "socket", "short circuit", "power", "blackout", "fluctuation", "fuse"]
+  },
+  sanitation: {
+    id: "sanitation",
+    name: "Sanitation & Waste Management",
+    badgeClass: "pill-sanitation",
+    color: "#16a34a",
+    keywords: ["garbage", "trash", "waste", "smell", "stink", "dump", "bin", "dustbin", "cleanliness", "dirty", "pest", "mosquito", "insects", "hygiene", "washroom", "toilet"]
+  },
+  infrastructure: {
+    id: "infrastructure",
+    name: "Civil Infrastructure & Roads",
+    badgeClass: "pill-infrastructure",
+    color: "#475569",
+    keywords: ["road", "pothole", "crack", "wall", "ceiling", "plaster", "bench", "desk", "door", "window", "stairs", "railing", "pavement", "footpath", "building", "tiles"]
+  },
+  hostel_mess: {
+    id: "hostel_mess",
+    name: "Hostel & Canteen Services",
+    badgeClass: "pill-hostel",
+    color: "#9333ea",
+    keywords: ["hostel", "mess", "canteen", "food", "room", "warden", "meal", "dinner", "lunch", "bed", "mattress", "curfew", "quality"]
+  },
+  academic_lab: {
+    id: "academic_lab",
+    name: "Academic Facilities & IT Labs",
+    badgeClass: "pill-academic",
+    color: "#6366f1",
+    keywords: ["lab", "projector", "computer", "pc", "ac", "wifi", "internet", "classroom", "mic", "speaker", "audio", "software", "network", "printer"]
+  },
+  public_safety: {
+    id: "public_safety",
+    name: "Safety & Emergency Hazards",
+    badgeClass: "pill-safety",
+    color: "#dc2626",
+    keywords: ["danger", "hazard", "fire", "extinguisher", "stray dog", "security", "guard", "emergency", "unsafe", "open manhole", "snakes", "threat"]
+  }
+};
+
+// Demo sample complaints for tracking lookup (available if faculty tests sample tokens)
+const SAMPLE_DEMO_GRIEVANCES = {
+  "GRV-2026-1001": {
+    id: "GRV-2026-1001",
+    title: "Water leaking near electrical switchboard in CSE Block B",
+    description: "3rd floor pipeline is dripping continuously near main distribution switch panel. Sparking hazard observed during peak hours.",
+    location: "Block B, CSE 3rd Floor",
+    department: "Estate & Electrical Works",
+    urgency: "Critical",
+    status: "In Progress",
+    createdAt: "18 Oct 2026, 09:30 AM",
+    categories: ["Water Supply & Plumbing", "Electrical & Power Hazards", "Safety & Emergency Hazards"],
+    categoryIds: ["water_supply", "electrical", "public_safety"],
+    upvotes: 14,
+    officer: "Er. Ramesh K. (Electrical Supervisor)",
+    timeline: [
+      { step: "Filed & Logged", date: "18 Oct, 09:30 AM", completed: true },
+      { step: "AI Auto-Tagged", date: "18 Oct, 09:31 AM", completed: true, detail: "#WaterSupply, #Electrical, #Safety" },
+      { step: "Officer Assigned", date: "18 Oct, 10:15 AM", completed: true },
+      { step: "Work In Progress", date: "18 Oct, 11:00 AM", active: true },
+      { step: "Final Verification", date: "Pending", completed: false }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=400&q=80"
+  },
+  "GRV-2026-1002": {
+    id: "GRV-2026-1002",
+    title: "Overflowing waste bins near Hostel 4 Mess area",
+    description: "Food waste uncollected for past two days causing bad odor and hygiene issue near student dining entrance.",
+    location: "Hostel 4 Rear Dining Gate",
+    department: "Public Health & Sanitation",
+    urgency: "High",
+    status: "Pending",
+    createdAt: "18 Oct 2026, 08:45 AM",
+    categories: ["Sanitation & Waste Management", "Hostel & Canteen Services"],
+    categoryIds: ["sanitation", "hostel_mess"],
+    upvotes: 9,
+    officer: "Sanitation Duty Desk",
+    timeline: [
+      { step: "Filed & Logged", date: "18 Oct, 08:45 AM", completed: true },
+      { step: "AI Auto-Tagged", date: "18 Oct, 08:46 AM", completed: true, detail: "#Sanitation, #HostelMess" },
+      { step: "Dispatched to Team", date: "18 Oct, 09:15 AM", active: true },
+      { step: "Disposal Action", date: "Scheduled", completed: false },
+      { step: "Final Verification", date: "Pending", completed: false }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1611284446314-60a58ac0deb9?auto=format&fit=crop&w=400&q=80"
+  },
+  "GRV-2026-1003": {
+    id: "GRV-2026-1003",
+    title: "Pothole repaired on South Campus ring road",
+    description: "Road surface repaired and asphalt leveling completed near Gate 3.",
+    location: "South Campus Ring Road",
+    department: "Civil Works & Roads",
+    urgency: "Medium",
+    status: "Resolved",
+    createdAt: "16 Oct 2026, 04:20 PM",
+    categories: ["Civil Infrastructure & Roads"],
+    categoryIds: ["infrastructure"],
+    upvotes: 22,
+    officer: "PWD Maintenance Crew",
+    timeline: [
+      { step: "Filed & Logged", date: "16 Oct, 04:20 PM", completed: true },
+      { step: "AI Auto-Tagged", date: "16 Oct, 04:21 PM", completed: true, detail: "#Infrastructure" },
+      { step: "Work Order Issued", date: "17 Oct, 09:00 AM", completed: true },
+      { step: "Road Patching Done", date: "17 Oct, 03:30 PM", completed: true },
+      { step: "Resolved & Inspected", date: "18 Oct, 10:00 AM", completed: true }
+    ],
+    imageUrl: "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?auto=format&fit=crop&w=400&q=80"
+  }
+};
+
+// Retrieve complaints from localStorage (Starts with empty array [] so count is 0 by default)
+function getStoredGrievances() {
+  const data = localStorage.getItem("intelli_grievances_clean");
+  if (!data) {
+    // Start with 0 registered grievances by default as requested!
+    return [];
+  }
+  try {
+    return JSON.parse(data);
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveGrievances(list) {
+  localStorage.setItem("intelli_grievances_clean", JSON.stringify(list));
+}
+
+// Helper to look up a token from user storage OR demo samples
+function findGrievanceByToken(tokenId) {
+  const cleanedId = (tokenId || "").trim().toUpperCase();
+  if (!cleanedId) return null;
+
+  // Check user-submitted grievances first
+  const userList = getStoredGrievances();
+  const fromUser = userList.find(g => g.id.toUpperCase() === cleanedId);
+  if (fromUser) return fromUser;
+
+  // Fallback to demo samples for viva demonstration
+  if (SAMPLE_DEMO_GRIEVANCES[cleanedId]) {
+    return SAMPLE_DEMO_GRIEVANCES[cleanedId];
+  }
+
+  return null;
+}
+
+  </script>
+  <script>
+/**
+ * INTELLIGENT GRIEVANCE REDRESSAL SYSTEM - AI & FEATURE SELECTION LAB
+ * Dedicated interactive simulation for faculty viva presentation and research defense.
+ * 
+ * Topics Demonstrated:
+ * 1. NLP Preprocessing (Tokenization, Stopword Removal)
+ * 2. Feature Selection via Chi-Square (Informative vs Noisy features)
+ * 3. Multi-Label Classification (Binary Relevance with Thresholding)
+ * 4. Multi-Label Metrics (Hamming Loss, Micro vs Macro F1)
+ */
+
+document.addEventListener("DOMContentLoaded", function () {
+  initAiLab();
+});
+
+// Common English Stopwords for demo token filtration
+const STOPWORDS = new Set([
+  "a", "about", "above", "after", "again", "against", "all", "am", "an", "and", "any", "are", "aren't",
+  "as", "at", "be", "because", "been", "before", "being", "below", "between", "both", "but", "by",
+  "can't", "cannot", "could", "couldn't", "did", "didn't", "do", "does", "doesn't", "doing", "don't",
+  "down", "during", "each", "few", "for", "from", "further", "had", "hadn't", "has", "hasn't", "have",
+  "haven't", "having", "he", "he'd", "he'll", "he's", "her", "here", "here's", "hers", "herself",
+  "him", "himself", "his", "how", "how's", "i", "i'd", "i'll", "i'm", "i've", "if", "in", "into", "is",
+  "isn't", "it", "it's", "its", "itself", "let's", "me", "more", "most", "mustn't", "my", "myself",
+  "no", "nor", "not", "of", "off", "on", "once", "only", "or", "other", "ought", "our", "ours",
+  "ourselves", "out", "over", "own", "same", "shan't", "she", "she'd", "she'll", "she's", "should",
+  "shouldn't", "so", "some", "such", "than", "that", "that's", "the", "their", "theirs", "them",
+  "themselves", "then", "there", "there's", "these", "they", "they'd", "they'll", "they're", "they've",
+  "this", "those", "through", "to", "too", "under", "until", "up", "very", "was", "wasn't", "we",
+  "we'd", "we'll", "we're", "we've", "were", "weren't", "what", "what's", "when", "when's", "where",
+  "where's", "which", "while", "who", "who's", "whom", "why", "why's", "with", "won't", "would",
+  "wouldn't", "you", "you'd", "you'll", "you're", "you've", "your", "yours", "yourself", "yourselves"
+]);
+
+// High-ranking Chi-Square informative vocabulary (trained features)
+const CHI_SQUARE_FEATURES = {
+  "spark": 48.6,
+  "sparking": 52.1,
+  "shortcircuit": 61.4,
+  "wire": 44.2,
+  "wires": 45.9,
+  "switch": 38.0,
+  "transformer": 59.3,
+  "leak": 51.2,
+  "leaking": 54.0,
+  "pipeline": 49.7,
+  "water": 42.1,
+  "tank": 39.5,
+  "overflow": 46.8,
+  "garbage": 58.2,
+  "stench": 53.4,
+  "drainage": 47.9,
+  "pothole": 62.5,
+  "road": 39.0,
+  "crack": 36.2,
+  "projector": 55.4,
+  "lab": 41.2,
+  "hostel": 50.8,
+  "mess": 52.3,
+  "hazard": 56.7,
+  "safety": 43.1
+};
+
+const DEMO_PRESETS = [
+  {
+    name: "Scenario 1: Water + Electrical Hazard",
+    text: "The main water supply pipe on 2nd floor is cracked and water is continuously dripping directly over the high voltage electrical distribution box. Sparks are flying and creating extreme short circuit danger."
+  },
+  {
+    name: "Scenario 2: Sanitation + Hostel Canteen",
+    text: "Unattended rotting garbage bins outside boys hostel mess are overflowing with kitchen waste. The foul stench is unbearable and flies are invading the dining tables, causing health risks."
+  },
+  {
+    name: "Scenario 3: Road Infrastructure + Safety",
+    text: "Severe deep potholes on the main college approach road with damaged speed breaker. During night time, lack of lighting makes this a dangerous hazard for students riding bicycles."
+  }
+];
+
+function initAiLab() {
+  const testInput = document.getElementById("aiTestInput");
+  const btnRunClassifier = document.getElementById("btnRunClassifier");
+  const presetsContainer = document.getElementById("aiPresetButtons");
+
+  // Render presets
+  if (presetsContainer) {
+    presetsContainer.innerHTML = DEMO_PRESETS.map((preset, idx) => `
+      <button class="btn btn-sm btn-outline-info me-2 mb-2" onclick="loadAiPreset(${idx})">
+        <i class="bi bi-play-circle"></i> ${preset.name}
+      </button>
+    `).join("");
+  }
+
+  window.loadAiPreset = function (index) {
+    if (testInput && DEMO_PRESETS[index]) {
+      testInput.value = DEMO_PRESETS[index].text;
+      runClassificationDemo(testInput.value);
+    }
+  };
+
+  if (btnRunClassifier && testInput) {
+    btnRunClassifier.addEventListener("click", () => {
+      runClassificationDemo(testInput.value.trim());
+    });
+  }
+
+  // Run initial preset
+  if (testInput) {
+    testInput.value = DEMO_PRESETS[0].text;
+    runClassificationDemo(testInput.value);
+  }
+}
+
+function runClassificationDemo(text) {
+  if (!text) {
+    alert("Please enter text or select a preset to analyze.");
+    return;
+  }
+
+  // 1. NLP Step: Tokenize & Clean
+  const rawWords = text.toLowerCase().replace(/[^a-zA-Z0-9\s]/g, " ").split(/\s+/).filter(Boolean);
+  const totalTokens = rawWords.length;
+
+  const filteredTokens = rawWords.filter(w => !STOPWORDS.has(w));
+  const removedStopwordsCount = totalTokens - filteredTokens.length;
+
+  // 2. Feature Selection: Chi-Square Highlight
+  const selectedFeatures = [];
+  const discardedWords = [];
+
+  filteredTokens.forEach(word => {
+    if (CHI_SQUARE_FEATURES[word] !== undefined) {
+      if (!selectedFeatures.some(f => f.word === word)) {
+        selectedFeatures.push({ word: word, chiScore: CHI_SQUARE_FEATURES[word] });
+      }
+    } else {
+      discardedWords.push(word);
+    }
+  });
+
+  // Render Terminal Logs
+  const terminalEl = document.getElementById("aiTerminalLogs");
+  if (terminalEl) {
+    terminalEl.innerHTML = `
+      <div class="text-secondary">[PIPELINE START] Processing incoming grievance text...</div>
+      <div><span class="text-warning">[1. TOKENIZATION]</span> Found <b>${totalTokens}</b> total words.</div>
+      <div><span class="text-warning">[2. STOPWORD REMOVAL]</span> Discarded <b>${removedStopwordsCount}</b> grammatical noise words (e.g. is, the, on, over).</div>
+      <div><span class="text-warning">[3. FEATURE SELECTION (Chi-Square &chi;2)]</span> Retained <b>${selectedFeatures.length}</b> statistically significant features with high discriminative power:</div>
+      <div class="my-2">
+        ${selectedFeatures.map(f => `<span class="ai-keyword-tag">${f.word} (&chi;2: ${f.chiScore})</span>`).join(" ")}
+      </div>
+      <div><span class="text-success">[4. MULTI-LABEL INFERENCE (Binary Relevance)]</span> Evaluating independent probability classifiers for 6 categories:</div>
+    `;
+  }
+
+  // 3. Multi-label probability calculation
+  const probabilities = {
+    "Water Supply & Plumbing": 0.05,
+    "Electrical & Power Hazards": 0.05,
+    "Sanitation & Waste": 0.05,
+    "Civil Infrastructure": 0.05,
+    "Hostel & Mess Services": 0.05,
+    "Academic & IT Facilities": 0.05,
+    "Public Safety & Hazards": 0.05
+  };
+
+  selectedFeatures.forEach(f => {
+    const w = f.word;
+    if (["leak", "leaking", "pipeline", "water", "tank", "overflow"].includes(w)) {
+      probabilities["Water Supply & Plumbing"] += 0.42;
+    }
+    if (["spark", "sparking", "shortcircuit", "wire", "wires", "switch", "transformer"].includes(w)) {
+      probabilities["Electrical & Power Hazards"] += 0.45;
+    }
+    if (["garbage", "stench", "drainage"].includes(w)) {
+      probabilities["Sanitation & Waste"] += 0.46;
+    }
+    if (["pothole", "road", "crack"].includes(w)) {
+      probabilities["Civil Infrastructure"] += 0.45;
+    }
+    if (["hostel", "mess"].includes(w)) {
+      probabilities["Hostel & Mess Services"] += 0.48;
+    }
+    if (["hazard", "safety", "danger"].includes(w) || (probabilities["Electrical & Power Hazards"] > 0.4 && probabilities["Water Supply & Plumbing"] > 0.4)) {
+      probabilities["Public Safety & Hazards"] += 0.38;
+    }
+  });
+
+  // Render Probabilities & Threshold
+  const probContainer = document.getElementById("aiProbabilityBars");
+  const assignedCategories = [];
+  const THRESHOLD = 0.50; // Decision boundary (50%)
+
+  if (probContainer) {
+    let barsHtml = "";
+
+    for (const [catName, rawProb] of Object.entries(probabilities)) {
+      const probPercent = Math.min(99, Math.round(rawProb * 100));
+      const isPositive = probPercent >= (THRESHOLD * 100);
+
+      if (isPositive) {
+        assignedCategories.push(catName);
+      }
+
+      let barColor = isPositive ? "#10b981" : "#64748b";
+      let statusText = isPositive 
+        ? `<span class="badge bg-success"><i class="bi bi-check-circle"></i> ACCEPTED (&ge; 0.50)</span>` 
+        : `<span class="text-secondary small">Below Threshold</span>`;
+
+      barsHtml += `
+        <div class="confidence-bar-wrapper mb-2">
+          <div class="confidence-bar-label text-dark">
+            <span>${catName}</span>
+            <span><b>${probPercent}%</b> ${statusText}</span>
+          </div>
+          <div class="confidence-bar-track position-relative">
+            <div class="confidence-threshold-marker" title="Decision Threshold = 50%"></div>
+            <div class="confidence-bar-fill" style="width: ${probPercent}%; background: ${barColor};"></div>
+          </div>
+        </div>
+      `;
+    }
+
+    probContainer.innerHTML = barsHtml;
+  }
+
+  // Summary Outcome Badge
+  const outcomeEl = document.getElementById("aiClassificationOutcome");
+  if (outcomeEl) {
+    if (assignedCategories.length === 0) {
+      outcomeEl.innerHTML = `
+        <div class="alert alert-secondary text-dark mb-0">
+          <i class="bi bi-info-circle"></i> No category crossed the 50% threshold. Fallback to manual review.
+        </div>
+      `;
+    } else {
+      outcomeEl.innerHTML = `
+        <div class="alert alert-success text-dark mb-0">
+          <div class="fw-bold mb-1"><i class="bi bi-diagram-3-fill text-success"></i> Auto-Assigned Multi-Labels (${assignedCategories.length} Categories):</div>
+          <div class="d-flex flex-wrap gap-2 mt-2">
+            ${assignedCategories.map(c => `<span class="badge bg-success fs-6 py-2 px-3">${c}</span>`).join(" ")}
+          </div>
+          <small class="text-muted d-block mt-2">
+            Notice how this single grievance activates multiple departmental workflows simultaneously!
+          </small>
+        </div>
+      `;
+    }
+  }
+}
+
+  </script>
+  <script>
+/**
+ * INTELLIGENT GRIEVANCE REDRESSAL SYSTEM - CORE APPLICATION LOGIC
+ * Clean, Student-Built Civic-Tech Web Application
+ * Features:
+ * 1. BIS Copilot Style Tab Navigation
+ * 2. Real-time NLP Category Auto-Detection
+ * 3. Compact Tracking Progress Stepper
+ * 4. WhatsApp Sharing & Helpdesk Widget
+ */
+
+document.addEventListener("DOMContentLoaded", function () {
+  initPortalTabs();
+  initFormInteractions();
+  initGrievanceFeed();
+  initTrackingSystem();
+  initAnalyticsCharts();
+  renderPublicStats();
+  initWhatsAppWidget();
+});
+
+/* ==========================================================================
+   1. Tab Navigation (BIS Copilot Style)
+   ========================================================================== */
+function initPortalTabs() {
+  window.switchPortalTab = function (tabId) {
+    // Hide all sections
+    const sections = document.querySelectorAll(".portal-section-content");
+    sections.forEach((sec) => sec.classList.remove("active-section"));
+
+    // Deactivate all nav buttons
+    const navButtons = document.querySelectorAll(".portal-nav-btn");
+    navButtons.forEach((btn) => btn.classList.remove("active"));
+
+    // Activate selected section
+    const targetSection = document.getElementById(tabId);
+    if (targetSection) {
+      targetSection.classList.add("active-section");
+    }
+
+    // Activate corresponding nav button
+    const targetBtn = document.getElementById(`btn-${tabId}`);
+    if (targetBtn) {
+      targetBtn.classList.add("active");
+    }
+
+    // If analytics tab, re-render charts so they scale accurately
+    if (tabId === "tab-analytics" && window.updateCharts) {
+      setTimeout(() => window.updateCharts(), 50);
+    }
+
+    // Scroll slightly to view area smoothly
+    window.scrollTo({ top: 120, behavior: "smooth" });
+  };
+}
+
+/* ==========================================================================
+   2. Grievance Form & Live NLP Auto-Detection
+   ========================================================================== */
+let uploadedImageBase64 = null;
+
+function initFormInteractions() {
+  const titleInput = document.getElementById("grievanceTitle");
+  const titleCounter = document.getElementById("titleCharCount");
+  const descInput = document.getElementById("grievanceDescription");
+  const aiSuggestionContainer = document.getElementById("aiSuggestionPills");
+  const fileDropzone = document.getElementById("fileDropzone");
+  const fileInput = document.getElementById("imageFileInput");
+  const previewContainer = document.getElementById("imagePreviewContainer");
+  const previewImg = document.getElementById("imagePreview");
+  const removeImgBtn = document.getElementById("btnRemoveImage");
+  const btnLocateMe = document.getElementById("btnLocateMe");
+  const locationInput = document.getElementById("grievanceLocation");
+  const submissionForm = document.getElementById("grievanceForm");
+
+  // Character counter for title
+  if (titleInput && titleCounter) {
+    titleInput.addEventListener("input", function () {
+      titleCounter.textContent = `${this.value.length}/100`;
+    });
+  }
+
+  // Live Multi-Label AI Category Suggester (NLP keyword matching)
+  if (descInput && aiSuggestionContainer) {
+    descInput.addEventListener("input", function () {
+      const text = (titleInput ? titleInput.value : "") + " " + this.value;
+      const detectedCategories = detectCategoriesFromText(text);
+
+      if (detectedCategories.length === 0) {
+        aiSuggestionContainer.innerHTML = `
+          <span class="text-muted small"><i class="bi bi-cpu"></i> Type complaint details above to see real-time AI category matching...</span>
+        `;
+      } else {
+        const pillsHtml = detectedCategories
+          .map((cat) => {
+            return `
+              <span class="category-pill ${cat.badgeClass}">
+                <i class="bi bi-tag-fill"></i> ${cat.name} 
+                <span class="badge bg-white text-dark ms-1">${cat.confidence}%</span>
+              </span>
+            `;
+          })
+          .join(" ");
+
+        aiSuggestionContainer.innerHTML = `
+          <div class="d-flex flex-wrap align-items-center gap-1">
+            <span class="small fw-bold text-success me-1"><i class="bi bi-stars"></i> Auto-Detected:</span>
+            ${pillsHtml}
+          </div>
+        `;
+      }
+    });
+  }
+
+  // Photo upload handling
+  if (fileDropzone && fileInput) {
+    fileDropzone.addEventListener("click", () => fileInput.click());
+
+    fileInput.addEventListener("change", function () {
+      if (this.files.length > 0) {
+        handleFileSelection(this.files[0]);
+      }
+    });
+  }
+
+  function handleFileSelection(file) {
+    if (!file.type.startsWith("image/")) {
+      alert("Please upload an image file (JPG, PNG, WEBP).");
+      return;
+    }
+    if (file.size > 5 * 1024 * 1024) {
+      alert("Image size exceeds 5MB limit.");
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      uploadedImageBase64 = e.target.result;
+      if (previewImg && previewContainer) {
+        previewImg.src = uploadedImageBase64;
+        previewContainer.classList.remove("d-none");
+        fileDropzone.classList.add("d-none");
+      }
+    };
+    reader.readAsDataURL(file);
+  }
+
+  if (removeImgBtn) {
+    removeImgBtn.addEventListener("click", function () {
+      uploadedImageBase64 = null;
+      if (fileInput) fileInput.value = "";
+      if (previewContainer) previewContainer.classList.add("d-none");
+      if (fileDropzone) fileDropzone.classList.remove("d-none");
+    });
+  }
+
+  // GPS Geolocation button
+  if (btnLocateMe && locationInput) {
+    btnLocateMe.addEventListener("click", function () {
+      if (!navigator.geolocation) {
+        locationInput.value = "Smart Campus, CSE Building (GPS Default)";
+        return;
+      }
+      btnLocateMe.innerHTML = `<span class="spinner-border spinner-border-sm"></span> Locating...`;
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const lat = pos.coords.latitude.toFixed(4);
+          const lng = pos.coords.longitude.toFixed(4);
+          locationInput.value = `GPS (${lat}, ${lng}) - Campus Area`;
+          btnLocateMe.innerHTML = `<i class="bi bi-check2"></i> Located`;
+          setTimeout(() => {
+            btnLocateMe.innerHTML = `<i class="bi bi-geo-alt"></i> Use GPS`;
+          }, 3000);
+        },
+        () => {
+          locationInput.value = "Smart Campus, CSE Block (Default GPS)";
+          btnLocateMe.innerHTML = `<i class="bi bi-geo-alt"></i> Use GPS`;
+        },
+        { timeout: 6000 }
+      );
+    });
+  }
+
+  // Form Submission
+  if (submissionForm) {
+    submissionForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const title = document.getElementById("grievanceTitle").value.trim();
+      const description = document.getElementById("grievanceDescription").value.trim();
+      const location = document.getElementById("grievanceLocation").value.trim() || "Campus Main Premise";
+      const department = document.getElementById("grievanceDept").value;
+      const urgency = document.getElementById("grievanceUrgency").value;
+      const isAnonymous = document.getElementById("checkAnonymous")?.checked || false;
+      const citizenName = isAnonymous ? "Anonymous Submitter" : (document.getElementById("citizenName")?.value.trim() || "Student Submitter");
+
+      if (!title || !description) {
+        alert("Please provide both a title and description for your grievance.");
+        return;
+      }
+
+      // Perform NLP Multi-Label Categorization
+      let detectedCategories = detectCategoriesFromText(title + " " + description);
+      if (detectedCategories.length === 0) {
+        detectedCategories = [
+          {
+            id: "infrastructure",
+            name: "Civil Infrastructure & Roads",
+            badgeClass: "pill-infrastructure",
+            confidence: 75
+          }
+        ];
+      }
+
+      // Generate unique token
+      const randomNum = Math.floor(1000 + Math.random() * 9000);
+      const trackingId = `GRV-2026-${randomNum}`;
+
+      const now = new Date();
+      const dateStr = now.toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" });
+      const timeStr = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+      const newGrievance = {
+        id: trackingId,
+        title: title,
+        description: description,
+        location: location,
+        department: department,
+        urgency: urgency,
+        status: "Pending",
+        createdAt: `${dateStr}, ${timeStr}`,
+        categories: detectedCategories.map((c) => c.name),
+        categoryIds: detectedCategories.map((c) => c.id),
+        upvotes: 1,
+        officer: "Queued for Dispatch",
+        timeline: [
+          { step: "Filed & Registered", date: `${dateStr}, ${timeStr}`, completed: true },
+          { step: "AI Categorized", date: `${dateStr}, ${timeStr}`, completed: true, detail: detectedCategories.map(c => "#" + c.name.split(" ")[0]).join(", ") },
+          { step: "Officer Assignment", date: "In Queue", active: true },
+          { step: "Field Action", date: "Pending", completed: false },
+          { step: "Final Verification", date: "Pending", completed: false }
+        ],
+        imageUrl: uploadedImageBase64 || "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=300&q=80"
+      };
+
+      // Save to localStorage
+      const list = getStoredGrievances();
+      list.unshift(newGrievance);
+      saveGrievances(list);
+
+      // Show receipt modal
+      showReceiptModal(newGrievance);
+
+      // Reset form
+      submissionForm.reset();
+      if (titleCounter) titleCounter.textContent = "0/100";
+      if (aiSuggestionContainer) {
+        aiSuggestionContainer.innerHTML = `
+          <span class="text-muted small"><i class="bi bi-cpu"></i> Type complaint details above to see real-time AI category matching...</span>
+        `;
+      }
+      if (removeImgBtn) removeImgBtn.click();
+
+      // Refresh dynamic displays
+      renderGrievanceFeed();
+      renderPublicStats();
+      if (window.updateCharts) window.updateCharts();
+    });
+  }
+}
+
+// NLP Keyword Matching
+function detectCategoriesFromText(text) {
+  if (!text || text.length < 3) return [];
+  const lower = text.toLowerCase();
+  const detected = [];
+
+  for (const [key, category] of Object.entries(GRIEVANCE_CATEGORIES)) {
+    let matchCount = 0;
+    category.keywords.forEach((keyword) => {
+      const regex = new RegExp(`\\b${keyword}\\b`, "i");
+      if (regex.test(lower)) matchCount++;
+    });
+
+    if (matchCount > 0) {
+      const confidence = Math.min(98, 70 + matchCount * 8);
+      detected.push({
+        id: category.id,
+        name: category.name,
+        badgeClass: category.badgeClass,
+        confidence: confidence
+      });
+    }
+  }
+
+  return detected.sort((a, b) => b.confidence - a.confidence);
+}
+
+// Receipt Modal
+function showReceiptModal(grievance) {
+  const modalEl = document.getElementById("submissionSuccessModal");
+  if (!modalEl) return;
+
+  document.getElementById("receiptToken").textContent = grievance.id;
+  document.getElementById("receiptTitle").textContent = grievance.title;
+  document.getElementById("receiptDate").textContent = grievance.createdAt;
+  document.getElementById("receiptLocation").textContent = grievance.location;
+  document.getElementById("receiptUrgency").textContent = grievance.urgency;
+
+  const catsEl = document.getElementById("receiptCategories");
+  if (catsEl) {
+    catsEl.innerHTML = grievance.categories
+      .map((c) => `<span class="badge bg-primary me-1">${c}</span>`)
+      .join(" ");
+  }
+
+  const modal = new bootstrap.Modal(modalEl);
+  modal.show();
+}
+
+/* ==========================================================================
+   3. Grievance Tracking (COMPACT, SETTLED DOWN, LESS SPACE)
+   ========================================================================== */
+function initTrackingSystem() {
+  const searchBtn = document.getElementById("btnSearchTrack");
+  const trackInput = document.getElementById("trackGrievanceId");
+
+  if (searchBtn && trackInput) {
+    searchBtn.addEventListener("click", () => performTracking(trackInput.value.trim()));
+    trackInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") performTracking(trackInput.value.trim());
+    });
+  }
+
+  window.trackSampleToken = function (tokenId) {
+    if (trackInput) {
+      trackInput.value = tokenId;
+      performTracking(tokenId);
+      switchPortalTab("tab-track");
+    }
+  };
+
+  // Perform initial lookup on demo token
+  performTracking("GRV-2026-1001");
+}
+
+function performTracking(tokenId) {
+  const resultCard = document.getElementById("trackResultCard");
+  if (!resultCard) return;
+
+  if (!tokenId) {
+    resultCard.innerHTML = `
+      <div class="alert alert-warning small py-2 mb-0">
+        <i class="bi bi-exclamation-circle me-1"></i> Please enter a Grievance Token ID (e.g. GRV-2026-1001).
+      </div>
+    `;
+    return;
+  }
+
+  const found = findGrievanceByToken(tokenId);
+
+  if (!found) {
+    resultCard.innerHTML = `
+      <div class="alert alert-danger small py-3 text-center mb-0">
+        <i class="bi bi-search me-1"></i> No grievance found with ID: <strong>${tokenId}</strong>.
+      </div>
+    `;
+    return;
+  }
+
+  // Compact 1-line Stepper
+  let stepperHtml = "";
+  if (found.timeline && found.timeline.length > 0) {
+    stepperHtml = found.timeline
+      .map((item, idx) => {
+        let nodeClass = "";
+        let iconHtml = `${idx + 1}`;
+        if (item.completed) {
+          nodeClass = "done";
+          iconHtml = `<i class="bi bi-check"></i>`;
+        } else if (item.active) {
+          nodeClass = "current";
+          iconHtml = `<i class="bi bi-arrow-right"></i>`;
+        }
+        return `
+          <div class="step-node ${nodeClass}">
+            <div class="step-circle">${iconHtml}</div>
+            <div class="step-title">${item.step}</div>
+            <div class="step-date">${item.date}</div>
+          </div>
+        `;
+      })
+      .join("");
+  }
+
+  // Category Pills
+  const catPills = found.categories
+    .map((c) => `<span class="badge bg-secondary me-1 py-1 px-2 small">${c}</span>`)
+    .join(" ");
+
+  // Status Badge Class
+  let statusBadgeClass = "bg-warning text-dark";
+  if (found.status === "In Progress") statusBadgeClass = "bg-primary text-white";
+  if (found.status === "Resolved") statusBadgeClass = "bg-success text-white";
+
+  resultCard.innerHTML = `
+    <!-- Slim Header Bar -->
+    <div class="track-header-bar">
+      <div>
+        <span class="small text-muted text-uppercase fw-bold">Tracking ID: </span>
+        <span class="text-primary fw-bold fs-5">${found.id}</span>
+      </div>
+      <div>
+        <span class="badge ${statusBadgeClass} py-1 px-3">${found.status}</span>
+      </div>
+    </div>
+
+    <!-- Compact Stepper -->
+    <div class="compact-stepper">
+      ${stepperHtml}
+    </div>
+
+    <!-- Compact Details Grid -->
+    <div class="row g-3 align-items-center mt-1">
+      <div class="col-md-9">
+        <h6 class="fw-bold text-dark mb-1">${found.title}</h6>
+        <p class="small text-muted mb-2">${found.description}</p>
+        
+        <div class="mb-2">
+          <span class="small fw-bold text-muted me-1">Categories:</span>
+          ${catPills}
+        </div>
+
+        <div class="row g-2 small bg-light p-2 rounded border">
+          <div class="col-sm-6">
+            <span class="text-muted">Location:</span> <strong>${found.location}</strong>
+          </div>
+          <div class="col-sm-6">
+            <span class="text-muted">Urgency:</span> <strong>${found.urgency}</strong>
+          </div>
+          <div class="col-sm-6">
+            <span class="text-muted">Officer In-Charge:</span> <strong>${found.officer || "Dispatched Desk"}</strong>
+          </div>
+          <div class="col-sm-6">
+            <span class="text-muted">Filed On:</span> <strong>${found.createdAt}</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- Small Compact Thumbnail (Settled down in less space) -->
+      <div class="col-md-3 text-center">
+        <span class="small text-muted d-block mb-1" style="font-size: 0.72rem; text-transform: uppercase;">Evidence Thumbnail</span>
+        <img src="${found.imageUrl}" alt="Evidence" class="compact-evidence-thumbnail shadow-sm">
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="d-flex flex-wrap gap-2 mt-3 pt-2 border-top">
+      <button class="btn btn-sm btn-whatsapp-share" onclick="shareGrievanceToWhatsApp('${found.id}')">
+        <i class="bi bi-whatsapp me-1"></i> Share Status on WhatsApp
+      </button>
+      <button class="btn btn-sm btn-outline-secondary" onclick="copyToClipboard('${found.id}')">
+        <i class="bi bi-clipboard me-1"></i> Copy Token
+      </button>
+    </div>
+  `;
+}
+
+/* ==========================================================================
+   4. Grievance Feed / Transparency Wall
+   ========================================================================== */
+let activeStatusFilter = "all";
+let activeCategoryFilter = "all";
+let searchQuery = "";
+
+function initGrievanceFeed() {
+  const filterBtns = document.querySelectorAll(".feed-filter-btn");
+  const searchInput = document.getElementById("feedSearchInput");
+  const categoryFilterSelect = document.getElementById("feedCategoryFilter");
+
+  if (filterBtns) {
+    filterBtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        filterBtns.forEach((b) => b.classList.remove("active", "btn-primary"));
+        filterBtns.forEach((b) => b.classList.add("btn-outline-secondary"));
+        this.classList.add("active", "btn-primary");
+        this.classList.remove("btn-outline-secondary");
+        activeStatusFilter = this.getAttribute("data-status");
+        renderGrievanceFeed();
+      });
+    });
+  }
+
+  if (categoryFilterSelect) {
+    categoryFilterSelect.addEventListener("change", function () {
+      activeCategoryFilter = this.value;
+      renderGrievanceFeed();
+    });
+  }
+
+  if (searchInput) {
+    searchInput.addEventListener("input", function () {
+      searchQuery = this.value.toLowerCase().trim();
+      renderGrievanceFeed();
+    });
+  }
+
+  renderGrievanceFeed();
+}
+
+function renderGrievanceFeed() {
+  const container = document.getElementById("grievanceFeedContainer");
+  if (!container) return;
+
+  const grievances = getStoredGrievances();
+
+  if (grievances.length === 0) {
+    container.innerHTML = `
+      <div class="col-12 text-center py-5">
+        <div class="p-4 bg-white border rounded">
+          <i class="bi bi-inbox text-muted fs-1 d-block mb-2"></i>
+          <h6 class="text-dark fw-bold">No public grievances registered yet</h6>
+          <p class="text-muted small mb-3">The database is currently clear. Use the "File Grievance" tab above to lodge a complaint and test the system!</p>
+          <button class="btn btn-primary btn-sm" onclick="switchPortalTab('tab-lodge')">
+            <i class="bi bi-plus-circle me-1"></i> File First Grievance
+          </button>
+        </div>
+      </div>
+    `;
+    return;
+  }
+
+  const filtered = grievances.filter((item) => {
+    if (activeStatusFilter !== "all" && item.status.toLowerCase() !== activeStatusFilter.toLowerCase()) {
+      return false;
+    }
+    if (activeCategoryFilter !== "all") {
+      const matchCat = item.categoryIds && item.categoryIds.includes(activeCategoryFilter);
+      if (!matchCat) return false;
+    }
+    if (searchQuery) {
+      const content = (item.title + " " + item.description + " " + item.location + " " + item.id).toLowerCase();
+      if (!content.includes(searchQuery)) return false;
+    }
+    return true;
+  });
+
+  if (filtered.length === 0) {
+    container.innerHTML = `
+      <div class="col-12 text-center py-4">
+        <p class="text-muted small">No grievances matching your current search/filter.</p>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = filtered
+    .map((g) => {
+      let statusClass = "bg-warning text-dark";
+      if (g.status === "In Progress") statusClass = "bg-primary text-white";
+      if (g.status === "Resolved") statusClass = "bg-success text-white";
+
+      const pillsHtml = g.categories
+        .map((cat) => `<span class="category-pill pill-infrastructure small mb-1"><i class="bi bi-tag"></i> ${cat}</span>`)
+        .join(" ");
+
+      return `
+      <div class="col-md-6 mb-3">
+        <div class="clean-card p-3 h-100">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge bg-light text-primary border fw-bold">${g.id}</span>
+            <span class="badge ${statusClass} small">${g.status}</span>
+          </div>
+          <h6 class="fw-bold mb-1">${g.title}</h6>
+          <p class="small text-muted mb-2">${g.description}</p>
+          <div class="mb-2">${pillsHtml}</div>
+          <div class="small text-muted mb-2"><i class="bi bi-geo-alt text-danger me-1"></i>${g.location}</div>
+          <div class="d-flex justify-content-between align-items-center pt-2 border-top">
+            <span class="small text-muted">${g.createdAt}</span>
+            <button class="btn btn-sm btn-outline-primary py-0 px-2 small" onclick="trackSampleToken('${g.id}')">
+              Track Status <i class="bi bi-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    `;
+    })
+    .join("");
+}
+
+/* ==========================================================================
+   5. Analytics Charts
+   ========================================================================== */
+let categoryChartInstance = null;
+let statusChartInstance = null;
+
+function initAnalyticsCharts() {
+  const catCanvas = document.getElementById("categoryChart");
+  const statusCanvas = document.getElementById("statusChart");
+
+  if (!catCanvas || !statusCanvas) return;
+
+  function renderOrUpdate() {
+    const grievances = getStoredGrievances();
+
+    const categoryCounts = {
+      "Water Supply": 0,
+      "Electrical": 0,
+      "Sanitation": 0,
+      "Infrastructure": 0,
+      "Hostel & Mess": 0,
+      "Academic Lab": 0,
+      "Public Safety": 0
+    };
+
+    grievances.forEach((g) => {
+      if (g.categories) {
+        g.categories.forEach((cat) => {
+          if (cat.includes("Water")) categoryCounts["Water Supply"]++;
+          else if (cat.includes("Electrical")) categoryCounts["Electrical"]++;
+          else if (cat.includes("Sanitation")) categoryCounts["Sanitation"]++;
+          else if (cat.includes("Infrastructure")) categoryCounts["Infrastructure"]++;
+          else if (cat.includes("Hostel")) categoryCounts["Hostel & Mess"]++;
+          else if (cat.includes("Academic")) categoryCounts["Academic Lab"]++;
+          else if (cat.includes("Safety")) categoryCounts["Public Safety"]++;
+        });
+      }
+    });
+
+    const statusCounts = { Pending: 0, "In Progress": 0, Resolved: 0 };
+    grievances.forEach((g) => {
+      if (statusCounts[g.status] !== undefined) statusCounts[g.status]++;
+      else statusCounts["Pending"]++;
+    });
+
+    if (categoryChartInstance) categoryChartInstance.destroy();
+    categoryChartInstance = new Chart(catCanvas, {
+      type: "bar",
+      data: {
+        labels: Object.keys(categoryCounts),
+        datasets: [{
+          label: "Tagged Count",
+          data: Object.values(categoryCounts),
+          backgroundColor: ["#0284c7", "#d97706", "#16a34a", "#64748b", "#9333ea", "#6366f1", "#dc2626"],
+          borderRadius: 4
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+      }
+    });
+
+    if (statusChartInstance) statusChartInstance.destroy();
+    statusChartInstance = new Chart(statusCanvas, {
+      type: "doughnut",
+      data: {
+        labels: ["Resolved", "In Progress", "Pending"],
+        datasets: [{
+          data: [statusCounts["Resolved"], statusCounts["In Progress"], statusCounts["Pending"]],
+          backgroundColor: ["#16a34a", "#2563eb", "#f59e0b"]
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { position: "bottom" } },
+        cutout: "65%"
+      }
+    });
+  }
+
+  window.updateCharts = renderOrUpdate;
+  renderOrUpdate();
+}
+
+/* ==========================================================================
+   6. Public Counters (Real count based on actual registered data)
+   ========================================================================== */
+function renderPublicStats() {
+  const list = getStoredGrievances();
+  const total = list.length;
+
+  const badgeEl = document.getElementById("statBadgeCount");
+  const topIndicator = document.getElementById("topStatusIndicator");
+
+  if (badgeEl) badgeEl.textContent = `${total} Complaints`;
+  if (topIndicator) {
+    topIndicator.innerHTML = `<i class="bi bi-circle-fill" style="font-size: 6px;"></i> Intake Active (${total} Registered)`;
+  }
+}
+
+/* ==========================================================================
+   7. WhatsApp Integration
+   ========================================================================== */
+function initWhatsAppWidget() {
+  const floatBtn = document.getElementById("whatsappFloatingBtn");
+  const chatWidget = document.getElementById("whatsappChatWidget");
+  const closeBtn = document.getElementById("btnCloseWhatsAppWidget");
+
+  if (floatBtn && chatWidget) {
+    floatBtn.addEventListener("click", () => chatWidget.classList.toggle("active"));
+  }
+  if (closeBtn && chatWidget) {
+    closeBtn.addEventListener("click", () => chatWidget.classList.remove("active"));
+  }
+}
+
+window.quickSendWhatsApp = function (actionType) {
+  let message = "Hello Civic Grievance Helpdesk! I would like to file a new complaint regarding: ";
+  if (actionType === "Track Grievance Status") {
+    message = "Hello! I want to check the status of my Grievance Token ID: ";
+  } else if (actionType === "Report Urgent Safety Hazard") {
+    message = "🚨 *URGENT HAZARD REPORT*: There is a critical electrical/water hazard at: ";
+  }
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, "_blank");
+};
+
+window.shareCurrentModalToWhatsApp = function () {
+  const token = document.getElementById("receiptToken")?.textContent || "GRV-2026";
+  const title = document.getElementById("receiptTitle")?.textContent || "Grievance";
+  const loc = document.getElementById("receiptLocation")?.textContent || "Campus";
+  const date = document.getElementById("receiptDate")?.textContent || "Today";
+
+  const message = `🏛️ *GRIEVANCE RECEIPT*\nToken: ${token}\nSubject: ${title}\nLocation: ${loc}\nDate: ${date}\nStatus: Registered with AI Auto-Routing`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, "_blank");
+};
+
+window.shareGrievanceToWhatsApp = function (tokenId) {
+  const g = findGrievanceByToken(tokenId);
+  if (!g) return;
+  const message = `🏛️ *GRIEVANCE STATUS*\nToken: ${g.id}\nIssue: ${g.title}\nStatus: ${g.status}\nLocation: ${g.location}\nOfficer: ${g.officer || "Dispatched Desk"}`;
+  window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`, "_blank");
+};
+
+window.copyToClipboard = function (text) {
+  navigator.clipboard.writeText(text).then(() => {
+    alert("Tracking Token copied to clipboard: " + text);
+  });
+};
+
+  </script>
 
 </body>
 </html>
